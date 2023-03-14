@@ -1,27 +1,3 @@
- /* Second Part */
-/* document.getElementById('btn-case-plus').addEventListener('click', function(){
-    const caseNumberField = document.getElementById('case-number-field');
-    const caseNumberString = caseNumberField.value;
-    const previousCaseNumber = parseInt(caseNumberString);
-
-    const newCaseNumber = previousCaseNumber +1;
-    caseNumberField.value = newCaseNumber;
-
-});
-
-document.getElementById('btn-case-minus').addEventListener('click', function(){
-    const caseNumberField = document.getElementById('case-number-field');
-    const caseNumberString = caseNumberField.value;
-    const previousCaseNumber = parseInt(caseNumberString);
-
-    const newCaseNumber = previousCaseNumber -1;
-    caseNumberField.value = newCaseNumber;
-
-});  */
-
-/* Process-1 */
-
-
 
 /* Process-2 */
  
@@ -30,7 +6,7 @@ function updateCaseNumber(isIncrease){
     const caseNumberString = caseNumberField.value;
     const previousCaseNumber = parseInt(caseNumberString);
 
-    let newCaseNumber;
+    let newCaseNumber; 
     
     if(isIncrease === true){
         newCaseNumber = previousCaseNumber +1;
@@ -42,20 +18,28 @@ function updateCaseNumber(isIncrease){
     return newCaseNumber;
  
 }
+
+//call function
+
+function updateCaseTotalPrice(newCaseNumber){ //for decrise call function
+
+    const caseTotalPrice = newCaseNumber * 59;
+    const caseTotalElement = document.getElementById('case-total');
+    caseTotalElement.innerText = caseTotalPrice;  
+}
+
 document.getElementById('btn-case-plus').addEventListener('click', function(){
     const newCaseNumber = updateCaseNumber(true);
     
-    const caseTotalPrice = newCaseNumber * 59;
-    const caseTotalElement = document.getElementById('case-total');
-    caseTotalElement.innerText = caseTotalPrice; 
+    updateCaseTotalPrice(newCaseNumber); 
+    calculateSubTotal();
 
 });
 document.getElementById('btn-case-minus').addEventListener('click', function(){
     const newCaseNumber = updateCaseNumber(false);
   
-    const caseTotalPrice = newCaseNumber * 59;
-    const caseTotalElement = document.getElementById('case-total');
-    caseTotalElement.innerText = caseTotalPrice; 
+    updateCaseTotalPrice(newCaseNumber);
+    calculateSubTotal();
 });
  
 
@@ -79,3 +63,24 @@ document.getElementById('btn-case-minu').addEventListener('click', function(){
     caseNumberField.value = newCaseNumber;
 
 }); */
+
+ /* Second Part */
+/* document.getElementById('btn-case-plus').addEventListener('click', function(){
+    const caseNumberField = document.getElementById('case-number-field');
+    const caseNumberString = caseNumberField.value;
+    const previousCaseNumber = parseInt(caseNumberString);
+
+    const newCaseNumber = previousCaseNumber +1;
+    caseNumberField.value = newCaseNumber;
+
+});
+
+document.getElementById('btn-case-minus').addEventListener('click', function(){
+    const caseNumberField = document.getElementById('case-number-field');
+    const caseNumberString = caseNumberField.value;
+    const previousCaseNumber = parseInt(caseNumberString);
+
+    const newCaseNumber = previousCaseNumber -1;
+    caseNumberField.value = newCaseNumber;
+
+});  */

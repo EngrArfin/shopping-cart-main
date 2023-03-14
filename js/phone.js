@@ -1,39 +1,73 @@
 /* Process-1 */
-
-
 function updatePhoneNumber(isIncrease){
-    const caseNumberField = document.getElementById('phone-number-field');
-    const caseNumberString = caseNumberField.value;
-    const previousCaseNumber = parseInt(caseNumberString);
+    const phoneNumberField = document.getElementById('phone-number-field');
+    const phoneNumberString = phoneNumberField.value;
+    const previousPhoneNumber = parseInt(phoneNumberString);
 
-    let newCaseNumber;
+    let newPhoneNumber;
     
     if(isIncrease === true){
-        newCaseNumber = previousCaseNumber +1;
+        newPhoneNumber = previousPhoneNumber +1;
     }
     else{
-        newCaseNumber = previousCaseNumber -1;
+        newPhoneNumber = previousPhoneNumber -1;
     }
-    caseNumberField.value = newCaseNumber;
-    return newCaseNumber;
+    phoneNumberField.value = newPhoneNumber;
+    return newPhoneNumber;
  
 }
-document.getElementById('btn-phone-plus').addEventListener('click', function(){
-    const newCaseNumber = updatePhoneNumber(true);
+function updatePhoneTotalPrice(newPhoneNumber){ //for decrise call function
 
-    /* for plus and multiply 59 */
-    const caseTotalPrice = newCaseNumber * 1219;
-    const caseTotalElement = document.getElementById('phone-total');
-    caseTotalElement.innerText = caseTotalPrice; 
+    const phoneTotalPrice = newPhoneNumber * 1219;
+    const phoneTotalElement = document.getElementById('phone-total');
+    phoneTotalElement.innerText = phoneTotalPrice; 
+}
+//calculate total
+
+
+document.getElementById('btn-phone-plus').addEventListener('click', function(){
+    const newPhoneNumber = updatePhoneNumber(true);
+    
+    updatePhoneTotalPrice(newPhoneNumber); //for decrise call function
+    calculateSubTotal();
 
 });
 document.getElementById('btn-phone-minus').addEventListener('click', function(){
-    const newCaseNumber = updatePhoneNumber(false);
+    const newPhoneNumber = updatePhoneNumber(false);
 
-   /*  for minus and multiply 59 */
-    const caseTotalPrice = newCaseNumber * 1219;
-    const caseTotalElement = document.getElementById('phone-total');
-    caseTotalElement.innerText = caseTotalPrice; 
-    
+    updatePhoneTotalPrice(newPhoneNumber);
+    calculateSubTotal();
 
 });
+
+
+
+
+
+
+
+
+/* const phoneTotalPrice = newPhoneNumber * 1219;
+    const phoneTotalElement = document.getElementById('phone-total');
+    phoneTotalElement.innerText = phoneTotalPrice; */
+/* 
+
+document.getElementById('btn-phone-plus').addEventListener('click', function(){
+    const newPhoneNumber = updatePhoneNumber(true);
+
+
+    const phoneTotalPrice = newPhoneNumber * 1219;
+    const phoneTotalElement = document.getElementById('phone-total');
+    phoneTotalElement.innerText = phoneTotalPrice; 
+
+    
+});
+document.getElementById('btn-phone-minus').addEventListener('click', function(){
+    const newPhoneNumber = updatePhoneNumber(false);
+
+    const phoneTotalPrice = newPhoneNumber * 1219;
+    const phoneTotalElement = document.getElementById('phone-total');
+    phoneTotalElement.innerText = phoneTotalPrice; 
+    
+
+}); */
